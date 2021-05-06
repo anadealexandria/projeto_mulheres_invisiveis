@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class TelaCadastrarVoluntariaResponsavel extends JFrame {
+public class TelaUsuarioDoSistema extends JFrame {
 
 	private JPanel contentPane;
 
@@ -18,7 +18,7 @@ public class TelaCadastrarVoluntariaResponsavel extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaCadastrarVoluntariaResponsavel frame = new TelaCadastrarVoluntariaResponsavel();
+					TelaUsuarioDoSistema frame = new TelaUsuarioDoSistema();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -30,7 +30,7 @@ public class TelaCadastrarVoluntariaResponsavel extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public TelaCadastrarVoluntariaResponsavel() {
+	public TelaUsuarioDoSistema() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
