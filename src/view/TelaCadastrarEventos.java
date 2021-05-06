@@ -7,6 +7,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import model.Evento;
+import servicos.EventosServico;
+
 public class TelaCadastrarEventos extends JFrame {
 
 	private JPanel contentPane;
@@ -37,6 +40,14 @@ public class TelaCadastrarEventos extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+	}
+	
+	public void cadastrarEvento() {
+		// pegar infomações do formulário
+		// criar objeto/s
+		Evento evento = new Evento();
+		// Preencher objeto com as informações do formulário
+		EventosServico eventoServico = new EventosServico();
 	}
 
 }
