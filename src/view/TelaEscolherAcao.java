@@ -6,6 +6,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import javax.swing.JButton;
 
 public class TelaEscolherAcao extends JFrame {
 
@@ -32,11 +36,37 @@ public class TelaEscolherAcao extends JFrame {
 	 */
 	public TelaEscolherAcao() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 444, 249);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblEscolherUmaAo = new JLabel("Escolher uma a\u00E7\u00E3o:");
+		lblEscolherUmaAo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblEscolherUmaAo.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblEscolherUmaAo.setBounds(136, 30, 169, 14);
+		contentPane.add(lblEscolherUmaAo);
+		
+		JButton btnDoao = new JButton("Doa\u00E7\u00E3o");
+		btnDoao.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnDoao.setBounds(157, 70, 134, 23);
+		contentPane.add(btnDoao);
+		
+		JButton btnVoluntrios = new JButton("Volunt\u00E1rios");
+		btnVoluntrios.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnVoluntrios.setBounds(157, 104, 134, 23);
+		contentPane.add(btnVoluntrios);
+		
+		JButton btnEventos = new JButton("Eventos");
+		btnEventos.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnEventos.setBounds(157, 138, 134, 23);
+		contentPane.add(btnEventos);
+		
+		JButton btnFinanceiro = new JButton("Financeiro");
+		btnFinanceiro.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnFinanceiro.setBounds(157, 172, 134, 23);
+		contentPane.add(btnFinanceiro);
 	}
 
 }
