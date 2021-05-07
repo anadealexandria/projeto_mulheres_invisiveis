@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import java.awt.Font;
 
 public class TelaListarEventos extends JFrame {
 
@@ -35,8 +38,14 @@ public class TelaListarEventos extends JFrame {
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblListaDeEventos = new JLabel("Lista de Eventos:");
+		lblListaDeEventos.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblListaDeEventos.setHorizontalAlignment(SwingConstants.CENTER);
+		lblListaDeEventos.setBounds(102, 28, 224, 14);
+		contentPane.add(lblListaDeEventos);
 	}
 
 }
