@@ -59,7 +59,7 @@ public class TelaEventos extends JFrame {
 		
 		JButton btnNewButton_2 = new JButton("Voltar");
 		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnNewButton_2.setBounds(185, 167, 92, 23);
+		btnNewButton_2.setBounds(178, 167, 99, 23);
 		contentPane.add(btnNewButton_2);
 	}
 
