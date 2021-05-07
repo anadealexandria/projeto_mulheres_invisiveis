@@ -46,10 +46,10 @@ public class TelaCadastrarEventos extends JPanel {
 	
 
 	public void cadastrarEvento() {
-		// pegar infomações do formulário
+		// pegar infomaï¿½ï¿½es do formulï¿½rio
 		// criar objeto/s
 		Evento evento = new Evento();
-		// Preencher objeto com as informações do formulário
+		// Preencher objeto com as informaï¿½ï¿½es do formulï¿½rio
 		EventosServico eventoServico = new EventosServico();
 		eventoServico.adicionar(evento);
 	}

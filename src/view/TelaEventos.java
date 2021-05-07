@@ -6,6 +6,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JButton;
 
 public class TelaEventos extends JFrame {
 
@@ -32,11 +36,28 @@ public class TelaEventos extends JFrame {
 	 */
 	public TelaEventos() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 253);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Eventos:");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabel.setBounds(196, 11, 48, 14);
+		contentPane.add(lblNewLabel);
+		
+		JButton btnNewButton = new JButton("Cadastrar");
+		btnNewButton.setBounds(178, 63, 99, 23);
+		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Listar");
+		btnNewButton_1.setBounds(178, 108, 99, 23);
+		contentPane.add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("Voltar");
+		btnNewButton_2.setBounds(196, 161, 61, 23);
+		contentPane.add(btnNewButton_2);
 	}
 
 }

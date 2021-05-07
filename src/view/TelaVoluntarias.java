@@ -6,6 +6,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaVoluntarias extends JFrame {
 
@@ -32,11 +37,30 @@ public class TelaVoluntarias extends JFrame {
 	 */
 	public TelaVoluntarias() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 452, 240);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Volunt\u00E1rias:");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabel.setBounds(180, 26, 139, 14);
+		contentPane.add(lblNewLabel);
+		
+		JButton btnNewButton = new JButton("Cadastrar volunt\u00E1rias");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnNewButton.setBounds(138, 81, 158, 23);
+		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Listas volunt\u00E1rias");
+		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnNewButton_1.setBounds(138, 126, 158, 23);
+		contentPane.add(btnNewButton_1);
 	}
 
 }
