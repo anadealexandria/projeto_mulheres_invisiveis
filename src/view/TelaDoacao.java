@@ -12,6 +12,8 @@ import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaDoacao extends JFrame {
 
@@ -20,6 +22,7 @@ public class TelaDoacao extends JFrame {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
+	private JButton btnVoltar;
 
 	/**
 	 * Launch the application.
@@ -42,7 +45,7 @@ public class TelaDoacao extends JFrame {
 	 */
 	public TelaDoacao() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 452, 354);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -92,5 +95,16 @@ public class TelaDoacao extends JFrame {
 		JButton btnNewButton = new JButton("Enviar");
 		btnNewButton.setBounds(179, 227, 89, 23);
 		contentPane.add(btnNewButton);
+		
+		btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaEscolherAcao telaEscolherAcao = new TelaEscolherAcao();
+				telaEscolherAcao.setVisible(true);
+				setVisible(false);
+			}
+		});
+		btnVoltar.setBounds(179, 261, 89, 23);
+		contentPane.add(btnVoltar);
 	}
 }

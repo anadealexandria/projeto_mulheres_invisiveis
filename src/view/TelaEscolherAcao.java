@@ -10,6 +10,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaEscolherAcao extends JFrame {
 
@@ -49,6 +51,13 @@ public class TelaEscolherAcao extends JFrame {
 		contentPane.add(lblEscolherUmaAo);
 		
 		JButton btnDoao = new JButton("Doa\u00E7\u00E3o");
+		btnDoao.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaDoacao telaDoacao = new TelaDoacao();
+				telaDoacao.setVisible(true);
+				setVisible(false);
+			}
+		});
 		btnDoao.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnDoao.setBounds(157, 70, 134, 23);
 		contentPane.add(btnDoao);

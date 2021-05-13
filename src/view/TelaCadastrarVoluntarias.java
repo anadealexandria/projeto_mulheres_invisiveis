@@ -10,6 +10,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaCadastrarVoluntarias extends JFrame {
 
@@ -104,6 +106,14 @@ public class TelaCadastrarVoluntarias extends JFrame {
 		textField_4.setColumns(10);
 		
 		JButton btnEnviar = new JButton("Enviar");
+		btnEnviar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				TelaPrincipalSistema telaPrincipal = new TelaPrincipalSistema();
+				telaPrincipal.setVisible(true);
+				setVisible(false);
+			}
+		});
 		btnEnviar.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnEnviar.setBounds(169, 284, 89, 23);
 		contentPane.add(btnEnviar);

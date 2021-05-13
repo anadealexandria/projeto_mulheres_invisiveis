@@ -75,6 +75,7 @@ public class TelaPrincipalSistema extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				TelaCadastrarVoluntarias cadastrarVoluntarias = new TelaCadastrarVoluntarias();
 				cadastrarVoluntarias.setVisible(true);
+				setVisible(false);
 			}
 		});
 		btnCadastrarVoluntriaResponsvel.setBounds(75, 227, 279, 23);
@@ -93,8 +94,9 @@ public class TelaPrincipalSistema extends JFrame {
 		JButton btnEntrar = new JButton("Entrar");
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaEventos telaEventos = new TelaEventos();
-				telaEventos.setVisible(true);
+				TelaEscolherAcao telaAcao = new TelaEscolherAcao();
+				telaAcao.setVisible(true);
+				setVisible(false);
 			}
 		});
 		btnEntrar.setBounds(168, 193, 89, 23);
