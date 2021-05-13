@@ -6,9 +6,18 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import model.Evento;
+
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+import javax.swing.JTextArea;
+import java.awt.event.InputMethodListener;
+import java.awt.event.InputMethodEvent;
+import javax.swing.JMenu;
+import java.awt.Panel;
+import java.awt.TextArea;
 
 public class TelaListarEventos extends JFrame {
 
@@ -46,6 +55,17 @@ public class TelaListarEventos extends JFrame {
 		lblListaDeEventos.setHorizontalAlignment(SwingConstants.CENTER);
 		lblListaDeEventos.setBounds(102, 28, 224, 14);
 		contentPane.add(lblListaDeEventos);
+		
+		Panel panel = new Panel();
+		panel.setBounds(10, 48, 414, 203);
+		contentPane.add(panel);
+		
+		TextArea textArea = new TextArea();
+		panel.add(textArea);
+		for(Evento evento: TelaCadastrarEventos.eventos) {
+			textArea.setText(evento.toString());
+		}
+		
+		
 	}
-
 }

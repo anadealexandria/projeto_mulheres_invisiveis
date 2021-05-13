@@ -1,19 +1,18 @@
 package view;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JTextField;
-import javax.swing.JTextArea;
-import javax.swing.JLabel;
 import java.awt.Font;
-import javax.swing.SwingConstants;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
 
 public class TelaPrincipalSistema extends JFrame {
 
@@ -71,13 +70,14 @@ public class TelaPrincipalSistema extends JFrame {
 		lblSenhta.setBounds(10, 122, 46, 14);
 		contentPane.add(lblSenhta);
 		
-		JButton btnCadastrarVoluntriaResponsvel = new JButton("Cadastrar Volunt\u00E1ria Respons\u00E1vel");
+		JButton btnCadastrarVoluntriaResponsvel = new JButton("Cadastrar Volunt\u00E1ria Respons\u00E1vel");		
 		btnCadastrarVoluntriaResponsvel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				trocarTela(new TelaCadastrarEventos());
+				TelaCadastrarVoluntarias cadastrarVoluntarias = new TelaCadastrarVoluntarias();
+				cadastrarVoluntarias.setVisible(true);
 			}
 		});
-		btnCadastrarVoluntriaResponsvel.setBounds(104, 194, 219, 23);
+		btnCadastrarVoluntriaResponsvel.setBounds(75, 227, 279, 23);
 		contentPane.add(btnCadastrarVoluntriaResponsvel);
 		
 		textField = new JTextField();
@@ -89,10 +89,15 @@ public class TelaPrincipalSistema extends JFrame {
 		textField_1.setBounds(11, 141, 413, 20);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
-	}
-	
-	public static void trocarTela(JPanel tela) {
-		telaPrincipal.setContentPane(tela);
-		telaPrincipal.revalidate();
+		
+		JButton btnEntrar = new JButton("Entrar");
+		btnEntrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaEventos telaEventos = new TelaEventos();
+				telaEventos.setVisible(true);
+			}
+		});
+		btnEntrar.setBounds(168, 193, 89, 23);
+		contentPane.add(btnEntrar);
 	}
 }

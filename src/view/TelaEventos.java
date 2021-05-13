@@ -1,15 +1,15 @@
 package view;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.JButton;
 
 public class TelaEventos extends JFrame {
 
@@ -48,11 +48,24 @@ public class TelaEventos extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("Cadastrar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaCadastrarEventos cadastrarEvento = new TelaCadastrarEventos();
+				cadastrarEvento.setVisible(true);
+				
+			}
+		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnNewButton.setBounds(178, 63, 99, 23);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Listar");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaListarEventos listaEventos = new TelaListarEventos();
+				listaEventos.setVisible(true);
+			}
+		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnNewButton_1.setBounds(178, 108, 99, 23);
 		contentPane.add(btnNewButton_1);
