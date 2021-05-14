@@ -52,6 +52,7 @@ public class TelaEventos extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				TelaCadastrarEventos cadastrarEvento = new TelaCadastrarEventos();
 				cadastrarEvento.setVisible(true);
+				setVisible(false);
 				
 			}
 		});
@@ -64,6 +65,7 @@ public class TelaEventos extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				TelaListarEventos listaEventos = new TelaListarEventos();
 				listaEventos.setVisible(true);
+				setVisible(false);
 			}
 		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -71,6 +73,13 @@ public class TelaEventos extends JFrame {
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Voltar");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaEscolherAcao telaEscolherAcao = new TelaEscolherAcao();
+				telaEscolherAcao.setVisible(true);
+				setVisible(false);
+			}
+		});
 		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnNewButton_2.setBounds(178, 167, 99, 23);
 		contentPane.add(btnNewButton_2);
