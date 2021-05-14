@@ -45,12 +45,15 @@ public class TelaVoluntarias extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("Volunt\u00E1rias:");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel.setBounds(180, 26, 139, 14);
+		lblNewLabel.setBounds(180, 26, 67, 14);
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("Cadastrar volunt\u00E1rias");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				TelaCadastrarVoluntarias telaCadastrarVoluntarias = new TelaCadastrarVoluntarias();
+				telaCadastrarVoluntarias.setVisible(true);
+				setVisible(false);
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -58,9 +61,26 @@ public class TelaVoluntarias extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Listas volunt\u00E1rias");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaListarVoluntarias telaListarVoluntarias = new TelaListarVoluntarias();
+				telaListarVoluntarias.setVisible(true);
+				setVisible(false);
+			}
+		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnNewButton_1.setBounds(138, 126, 158, 23);
 		contentPane.add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("Voltar");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaEscolherAcao telaEscolherAcao = new TelaEscolherAcao();
+				telaEscolherAcao.setVisible(true);
+				setVisible(false);
+			}
+		});
+		btnNewButton_2.setBounds(175, 167, 89, 23);
+		contentPane.add(btnNewButton_2);
 	}
-
 }

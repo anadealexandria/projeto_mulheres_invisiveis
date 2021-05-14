@@ -43,7 +43,7 @@ public class TelaCadastrarVoluntarias extends JFrame {
 	 */
 	public TelaCadastrarVoluntarias() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 461, 369);
+		setBounds(100, 100, 461, 398);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -117,5 +117,19 @@ public class TelaCadastrarVoluntarias extends JFrame {
 		btnEnviar.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnEnviar.setBounds(169, 284, 89, 23);
 		contentPane.add(btnEnviar);
+		
+		JButton btnNewButton = new JButton("Voltar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaVoluntarias telaVoluntarias = new TelaVoluntarias();
+				telaVoluntarias.setVisible(true);
+				setVisible(false);
+				
+				
+			}
+		});
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnNewButton.setBounds(169, 318, 89, 23);
+		contentPane.add(btnNewButton);
 	}
 }

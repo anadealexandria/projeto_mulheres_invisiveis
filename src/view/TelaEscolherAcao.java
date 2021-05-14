@@ -63,16 +63,37 @@ public class TelaEscolherAcao extends JFrame {
 		contentPane.add(btnDoao);
 		
 		JButton btnVoluntrios = new JButton("Volunt\u00E1rios");
+		btnVoluntrios.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaVoluntarias telaVoluntarias = new TelaVoluntarias();
+				telaVoluntarias.setVisible(true);
+				setVisible(false);
+			}
+		});
 		btnVoluntrios.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnVoluntrios.setBounds(157, 104, 134, 23);
 		contentPane.add(btnVoluntrios);
 		
 		JButton btnEventos = new JButton("Eventos");
+		btnEventos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaEventos telaEventos = new TelaEventos();
+				telaEventos.setVisible(true);
+				setVisible(false);
+			}
+		});
 		btnEventos.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnEventos.setBounds(157, 138, 134, 23);
 		contentPane.add(btnEventos);
 		
 		JButton btnFinanceiro = new JButton("Financeiro");
+		btnFinanceiro.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaFinanceiro telaFinanceiro = new TelaFinanceiro();
+				telaFinanceiro.setVisible(true);
+				setVisible(false);
+			}
+		});
 		btnFinanceiro.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnFinanceiro.setBounds(157, 172, 134, 23);
 		contentPane.add(btnFinanceiro);

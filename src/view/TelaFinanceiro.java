@@ -11,12 +11,16 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTable;
 import java.awt.Color;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaFinanceiro extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
 	private JTable table_1;
+	private JButton btnNewButton;
 
 	/**
 	 * Launch the application.
@@ -59,5 +63,17 @@ public class TelaFinanceiro extends JFrame {
 		table_1.setForeground(Color.RED);
 		table_1.setBounds(339, 65, -256, 138);
 		contentPane.add(table_1);
+		
+		btnNewButton = new JButton("Voltar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaEscolherAcao telaEscolherAcao = new TelaEscolherAcao();
+				telaEscolherAcao.setVisible(true);
+				setVisible(false);
+			}
+		});
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnNewButton.setBounds(173, 227, 89, 23);
+		contentPane.add(btnNewButton);
 	}
 }

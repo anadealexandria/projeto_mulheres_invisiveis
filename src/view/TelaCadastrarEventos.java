@@ -52,7 +52,7 @@ public class TelaCadastrarEventos extends JFrame {
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 475, 430);
+		setBounds(100, 100, 468, 470);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -143,6 +143,18 @@ public class TelaCadastrarEventos extends JFrame {
 		botaoEnviar.setFont(new Font("Tahoma", Font.BOLD, 11));
 		botaoEnviar.setBounds(190, 357, 89, 23);
 		contentPane.add(botaoEnviar);
+		
+		JButton btnNewButton = new JButton("Voltar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaEventos telaEventos = new TelaEventos();
+				telaEventos.setVisible(true);
+				setVisible(false);
+			}
+		});
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnNewButton.setBounds(190, 391, 89, 23);
+		contentPane.add(btnNewButton);
 		
 		botaoEnviar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

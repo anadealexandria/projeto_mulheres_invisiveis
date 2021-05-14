@@ -9,6 +9,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaListarVoluntarias extends JFrame {
 
@@ -46,6 +49,18 @@ public class TelaListarVoluntarias extends JFrame {
 		lblListaDeVoluntrias.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblListaDeVoluntrias.setBounds(106, 23, 203, 14);
 		contentPane.add(lblListaDeVoluntrias);
+		
+		JButton btnNewButton = new JButton("Voltar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaVoluntarias telaVoluntarias = new TelaVoluntarias();
+				telaVoluntarias.setVisible(true);
+				setVisible(false);
+			}
+		});
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnNewButton.setBounds(170, 213, 89, 23);
+		contentPane.add(btnNewButton);
 	}
 
 }
