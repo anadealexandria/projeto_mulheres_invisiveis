@@ -1,36 +1,52 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Voluntaria {
-	
 	private String nome;
+	private String cpf;
 	private String telefone;
-	private String disponibilidadeTempo;
+	
+	public static List<Voluntaria> voluntarias = new ArrayList<>();
 	
 	public Voluntaria() {
 		
 	}
-	public Voluntaria (String nome, String telefone, String disponibilidadeTempo) {
+		
+	public Voluntaria(String nome, String cpf, String telefone) {
 		this.nome = nome;
+		this.cpf = cpf;
 		this.telefone = telefone;
-		this.disponibilidadeTempo = disponibilidadeTempo;
+		
 	}
-	
-	public String getnome() {
+
+	public String getNome() {
 		return nome;
 	}
-	public void setnome(String nome) {
+
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String gettelefone() {
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public String getTelefone() {
 		return telefone;
 	}
-	public void settelefone(String telefone) {
+
+	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-	public String getdisponibilidadeTempo() {
-		return disponibilidadeTempo;
-	}
-	public void setdisponibilidadeTempo() {
-		this.disponibilidadeTempo = disponibilidadeTempo;
+	
+	@Override
+	public String toString() {
+		return "\n    Nome: " + nome + "\n    CPF: " + cpf + "\n    Telefone: " + telefone + "\n";
 	}
 }

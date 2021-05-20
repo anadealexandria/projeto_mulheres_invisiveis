@@ -6,12 +6,21 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import model.Voluntaria;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextArea;
+import javax.swing.JTextPane;
+import javax.swing.JEditorPane;
+import javax.swing.JScrollPane;
+import java.awt.Panel;
+import java.awt.TextArea;
 
 public class TelaListarVoluntarias extends JFrame {
 
@@ -61,6 +70,15 @@ public class TelaListarVoluntarias extends JFrame {
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnNewButton.setBounds(170, 213, 89, 23);
 		contentPane.add(btnNewButton);
+		
+		Panel panel = new Panel();
+		panel.setBounds(10, 43, 414, 164);
+		contentPane.add(panel);
+		
+		TextArea textArea = new TextArea();
+		panel.add(textArea);
+		for (int i = 0 ; i < Voluntaria.voluntarias.size() ; i++) {
+			textArea.setText(Voluntaria.voluntarias.toString());
+		}
 	}
-
 }

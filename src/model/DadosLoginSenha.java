@@ -1,8 +1,11 @@
 package model;
 
+import java.util.ArrayList;
+
 public class DadosLoginSenha {
 	private String login;
 	private String senha;
+	public static String[] acesso = new String [2];
 	
 	public DadosLoginSenha() {
 		
@@ -29,7 +32,9 @@ public class DadosLoginSenha {
 		this.senha = senha;
 	}
 	
+	@Override
+	public String toString() {
+		return "\n" + login + "\n" + senha;
 	
-	
-	
+	}
 }

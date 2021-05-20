@@ -10,17 +10,19 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+
+import model.DadosLoginSenha;
+import model.Voluntaria;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class TelaCadastrarVoluntarias extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
+	private JTextField textNome;
+	private JTextField textCpf;
+	private JTextField textTelefone;
 
 	/**
 	 * Launch the application.
@@ -43,7 +45,7 @@ public class TelaCadastrarVoluntarias extends JFrame {
 	 */
 	public TelaCadastrarVoluntarias() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 461, 398);
+		setBounds(100, 100, 461, 333);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -55,68 +57,55 @@ public class TelaCadastrarVoluntarias extends JFrame {
 		lblNewLabel.setBounds(60, 23, 282, 14);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Nome:");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_1.setBounds(10, 63, 60, 14);
-		contentPane.add(lblNewLabel_1);
+		JLabel nome = new JLabel("Nome:");
+		nome.setFont(new Font("Tahoma", Font.BOLD, 11));
+		nome.setBounds(10, 63, 60, 14);
+		contentPane.add(nome);
 		
-		textField = new JTextField();
-		textField.setBounds(10, 78, 424, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		textNome = new JTextField();
+		textNome.setBounds(10, 78, 424, 20);
+		contentPane.add(textNome);
+		textNome.setColumns(10);
 		
-		JLabel lblCpf = new JLabel("CPF:");
-		lblCpf.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblCpf.setBounds(10, 109, 46, 14);
-		contentPane.add(lblCpf);
+		JLabel Cpf = new JLabel("CPF:");
+		Cpf.setFont(new Font("Tahoma", Font.BOLD, 11));
+		Cpf.setBounds(10, 109, 46, 14);
+		contentPane.add(Cpf);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(10, 122, 424, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		textCpf = new JTextField();
+		textCpf.setBounds(10, 122, 424, 20);
+		contentPane.add(textCpf);
+		textCpf.setColumns(10);
 		
-		JLabel lblTelefone = new JLabel("Telefone:");
-		lblTelefone.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblTelefone.setBounds(10, 151, 70, 14);
-		contentPane.add(lblTelefone);
+		JLabel Telefone = new JLabel("Telefone:");
+		Telefone.setFont(new Font("Tahoma", Font.BOLD, 11));
+		Telefone.setBounds(10, 151, 70, 14);
+		contentPane.add(Telefone);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(10, 163, 424, 20);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
-		
-		JLabel lblLogin = new JLabel("Login:");
-		lblLogin.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblLogin.setBounds(10, 194, 60, 14);
-		contentPane.add(lblLogin);
-		
-		textField_3 = new JTextField();
-		textField_3.setBounds(10, 208, 424, 20);
-		contentPane.add(textField_3);
-		textField_3.setColumns(10);
-		
-		JLabel lblSenha = new JLabel("Senha:");
-		lblSenha.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblSenha.setBounds(10, 239, 46, 14);
-		contentPane.add(lblSenha);
-		
-		textField_4 = new JTextField();
-		textField_4.setBounds(10, 253, 424, 20);
-		contentPane.add(textField_4);
-		textField_4.setColumns(10);
+		textTelefone = new JTextField();
+		textTelefone.setBounds(10, 163, 424, 20);
+		contentPane.add(textTelefone);
+		textTelefone.setColumns(10);
 		
 		JButton btnEnviar = new JButton("Enviar");
-		btnEnviar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				TelaPrincipalSistema telaPrincipal = new TelaPrincipalSistema();
-				telaPrincipal.setVisible(true);
-				setVisible(false);
-			}
-		});
 		btnEnviar.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnEnviar.setBounds(169, 284, 89, 23);
+		btnEnviar.setBounds(169, 217, 89, 23);
 		contentPane.add(btnEnviar);
+		btnEnviar.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			String nome = textNome.getText();
+			String cpf = textCpf.getText();
+			String telefone = textTelefone.getText();
+			
+			
+			Voluntaria voluntaria = new Voluntaria(nome, cpf, telefone);
+			Voluntaria.voluntarias.add(voluntaria);
+			textNome.setText("");
+			textCpf.setText("");
+			textTelefone.setText("");
+			
+		}
+		});
 		
 		JButton btnNewButton = new JButton("Voltar");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -129,7 +118,7 @@ public class TelaCadastrarVoluntarias extends JFrame {
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnNewButton.setBounds(169, 318, 89, 23);
+		btnNewButton.setBounds(169, 251, 89, 23);
 		contentPane.add(btnNewButton);
 	}
 }

@@ -1,12 +1,14 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Evento {
 	private String nome;
-	private String data;
-	//private GrupoEvento grupo;	
+	private String data;	
 	private String objetivo;
 	private double custo;
-	
+	public static List<Evento> eventos = new ArrayList<>();
 	
 	public Evento() {
 		
@@ -14,8 +16,7 @@ public class Evento {
 
 	public Evento(String nome, String data, String objetivo, double custo) {
 		this.nome = nome;
-		this.data = data;		
-		//this.grupo = grupo;		
+		this.data = data;			
 		this.objetivo = objetivo;
 		this.custo = custo;
 		
@@ -35,15 +36,7 @@ public class Evento {
 
 	public void setData(String data) {
 		this.data = data;
-	}	
-
-	//public GrupoEvento getGrupo() {
-	//	return grupo;
-	//}
-
-	//public void setGrupo(GrupoEvento grupo) {
-	//	this.grupo = grupo;
-	//}
+	}		
 	
 	public String getObjetivo() {
 		return objetivo;
@@ -59,11 +52,12 @@ public class Evento {
 
 	public void setCusto(double custo) {
 		this.custo = custo;
-	}
-	
+	}		
+
 	@Override
 	public String toString() {
-		return "\nNome: " + nome + "\nData: " + data + "\nObjetivo: " + objetivo + "\nCusto: " + custo;
+		return "\n      Nome: " + nome + "\n      Data: " + data + "\n      Objetivo: " + objetivo + "\n      Custo: " + custo + "\n";
+		
 	}
 	
 }

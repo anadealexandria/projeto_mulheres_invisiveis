@@ -1,14 +1,18 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Doador {
 
 		private String nome;
 		private  String cpfCnpj;
-		private double doacao;
+		private Doacao doacao;
+		public static ArrayList<Doador> doadores = new ArrayList<>();
 		
 		public Doador() {
-}
-		public Doador (String nome, String cpfCnpj, double doacao ) {
+		}
+		
+		public Doador (String nome, String cpfCnpj, Doacao doacao ) {
 			this.nome = nome;
 			this.cpfCnpj = cpfCnpj;
 			this.doacao = doacao;
@@ -30,11 +34,16 @@ public class Doador {
 			this.cpfCnpj = cpfCnpj;
 		}
 		
-		public double getdoaçao() {
+		public Doacao getdoaçao() {
 			return doacao;
 		}
 		
-		public void setdoaçao(double doacao) {
+		public void setdoaçao(Doacao doacao) {
 			this.doacao = doacao;
+		}
+		
+		@Override
+		public String toString() {
+			return "\n    Nome do doador(a): " + nome + "\n    CPF/CNPJ: " + cpfCnpj + "\n    Doação:" + doacao + "\n";
 		}
 }

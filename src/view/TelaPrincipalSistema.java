@@ -8,18 +8,23 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import model.DadosLoginSenha;
+
+import javax.swing.JPasswordField;
+
 public class TelaPrincipalSistema extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField textLogin;
 	private static TelaPrincipalSistema telaPrincipal;
+	private JPasswordField passwordSenha;
 
 	/**
 	 * Launch the application.
@@ -53,7 +58,7 @@ public class TelaPrincipalSistema extends JFrame {
 		textArea.setBounds(75, 30, -66, 22);
 		contentPane.add(textArea);
 		
-		JLabel lblBemvindasMulheres = new JLabel("Bem-vinda \u00E0s  Mulheres Invis\u00EDveis!");
+		JLabel lblBemvindasMulheres = new JLabel("Bem-vinda \u00E0  Mulheres Invis\u00EDveis!");
 		lblBemvindasMulheres.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBemvindasMulheres.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblBemvindasMulheres.setBounds(0, 0, 424, 37);
@@ -70,36 +75,50 @@ public class TelaPrincipalSistema extends JFrame {
 		lblSenhta.setBounds(10, 122, 46, 14);
 		contentPane.add(lblSenhta);
 		
-		JButton btnCadastrarVoluntriaResponsvel = new JButton("Cadastrar Volunt\u00E1ria Respons\u00E1vel");		
+		JButton btnCadastrarVoluntriaResponsvel = new JButton("Primeiro Cadastro");		
+		btnCadastrarVoluntriaResponsvel.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnCadastrarVoluntriaResponsvel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaCadastrarVoluntarias cadastrarVoluntarias = new TelaCadastrarVoluntarias();
-				cadastrarVoluntarias.setVisible(true);
+				TelaPrimeiroCadastro cadastro = new TelaPrimeiroCadastro();
+				cadastro.setVisible(true);
 				setVisible(false);
+				
 			}
 		});
-		btnCadastrarVoluntriaResponsvel.setBounds(75, 227, 279, 23);
+		btnCadastrarVoluntriaResponsvel.setBounds(141, 227, 145, 23);
 		contentPane.add(btnCadastrarVoluntriaResponsvel);
 		
-		textField = new JTextField();
-		textField.setBounds(11, 91, 413, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		textLogin = new JTextField();
+		textLogin.setBounds(11, 91, 413, 20);
+		contentPane.add(textLogin);
+		textLogin.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(11, 141, 413, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		passwordSenha = new JPasswordField();
+		passwordSenha.setBounds(10, 144, 414, 20);
+		contentPane.add(passwordSenha);
 		
 		JButton btnEntrar = new JButton("Entrar");
+		btnEntrar.setBounds(168, 193, 89, 23);
+		contentPane.add(btnEntrar);		
+		btnEntrar.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaEscolherAcao telaAcao = new TelaEscolherAcao();
-				telaAcao.setVisible(true);
-				setVisible(false);
-			}
+				String login = textLogin.getText();
+				String senha = new String(passwordSenha.getPassword());	
+				
+				if(login.equals(DadosLoginSenha.acesso[0]) && senha.equals(DadosLoginSenha.acesso[1])) {
+						TelaEscolherAcao telaAcao = new TelaEscolherAcao();
+						telaAcao.setVisible(true);
+						setVisible(false);
+				}else {		
+					textLogin.setText("");
+					passwordSenha.setText("");
+					JOptionPane.showMessageDialog(null, "Usuário não cadastrado ou Inválido!");
+				
+				}
+			}	
 		});
-		btnEntrar.setBounds(168, 193, 89, 23);
-		contentPane.add(btnEntrar);
 	}
 }
+
+

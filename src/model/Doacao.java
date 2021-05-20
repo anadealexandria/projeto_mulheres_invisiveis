@@ -19,4 +19,9 @@ public class Doacao {
 		this.valor = valor;
 		
 	}
+	
+	@Override
+	public String toString() {
+		return " " + valor;
+	}
 }

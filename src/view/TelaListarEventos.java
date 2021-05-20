@@ -60,7 +60,7 @@ public class TelaListarEventos extends JFrame {
 		contentPane.add(lblListaDeEventos);
 		
 		Panel panel = new Panel();
-		panel.setBounds(10, 48, 414, 203);
+		panel.setBounds(20, 48, 404, 203);
 		contentPane.add(panel);
 		
 		TextArea textArea = new TextArea();
@@ -77,8 +77,9 @@ public class TelaListarEventos extends JFrame {
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnNewButton.setBounds(177, 274, 89, 23);
 		contentPane.add(btnNewButton);
-		for(Evento evento: TelaCadastrarEventos.eventos) {
-			textArea.setText(evento.toString());
+		for(int i = 0 ; i < Evento.eventos.size() ; i++) {
+			textArea.setText(Evento.eventos.toString());
+			
 		}
 		
 		
