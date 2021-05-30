@@ -5,14 +5,16 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
 
-public class TelaVoluntarias extends JFrame {
+public class TelaFuncionario extends JFrame {
 
 	private JPanel contentPane;
 
@@ -23,7 +25,8 @@ public class TelaVoluntarias extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaVoluntarias frame = new TelaVoluntarias();
+					UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+					TelaFuncionario frame = new TelaFuncionario();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -35,32 +38,33 @@ public class TelaVoluntarias extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public TelaVoluntarias() {
+	public TelaFuncionario() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 452, 240);
+		setBounds(100, 100, 452, 292);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Volunt\u00E1rias:");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel.setBounds(180, 26, 67, 14);
+		JLabel lblNewLabel = new JLabel("Funcion\u00E1rio Logado:");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNewLabel.setBounds(10, 26, 416, 23);
 		contentPane.add(lblNewLabel);
 		
-		JButton btnNewButton = new JButton("Cadastrar volunt\u00E1rias");
+		JButton btnNewButton = new JButton("Volunt\u00E1rios");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaCadastrarVoluntarias telaCadastrarVoluntarias = new TelaCadastrarVoluntarias();
-				telaCadastrarVoluntarias.setVisible(true);
+				TelaVoluntario telaVoluntario = new TelaVoluntario();
+				telaVoluntario.setVisible(true);
 				setVisible(false);
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnNewButton.setBounds(138, 81, 158, 23);
+		btnNewButton.setBounds(138, 81, 158, 34);
 		contentPane.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("Listas volunt\u00E1rias");
+		JButton btnNewButton_1 = new JButton("Eventos");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaListarVoluntarias telaListarVoluntarias = new TelaListarVoluntarias();
@@ -69,7 +73,7 @@ public class TelaVoluntarias extends JFrame {
 			}
 		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnNewButton_1.setBounds(138, 126, 158, 23);
+		btnNewButton_1.setBounds(138, 126, 158, 33);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Voltar");
@@ -81,7 +85,7 @@ public class TelaVoluntarias extends JFrame {
 				setVisible(false);
 			}
 		});
-		btnNewButton_2.setBounds(175, 167, 89, 23);
+		btnNewButton_2.setBounds(337, 208, 89, 34);
 		contentPane.add(btnNewButton_2);
 	}
 }

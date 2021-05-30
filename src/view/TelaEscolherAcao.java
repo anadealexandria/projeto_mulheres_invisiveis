@@ -65,7 +65,7 @@ public class TelaEscolherAcao extends JFrame {
 		JButton btnVoluntrios = new JButton("Volunt\u00E1rios");
 		btnVoluntrios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaVoluntarias telaVoluntarias = new TelaVoluntarias();
+				TelaFuncionario telaVoluntarias = new TelaFuncionario();
 				telaVoluntarias.setVisible(true);
 				setVisible(false);
 			}

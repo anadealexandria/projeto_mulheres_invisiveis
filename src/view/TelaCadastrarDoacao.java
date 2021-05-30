@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 
 import model.Doacao;
 import model.Doador;
+import model.Receita;
 
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -103,12 +104,16 @@ public class TelaCadastrarDoacao extends JFrame {
 		JButton btnNewButton = new JButton("Enviar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+			try {		
 				String nome = nomeDoacao.getText();
 				String identificador = cpfCnpj.getText();				
 				double vl = Double.parseDouble(valor.getText());
 				
 				
 				Doacao quantia = new Doacao(vl);
+				
+				Receita.receitas.add(vl);			
+				System.out.println(Receita.receitas.toString());
 				
 				Doador doador = new Doador(nome, identificador, quantia);
 				
@@ -122,6 +127,9 @@ public class TelaCadastrarDoacao extends JFrame {
 					setVisible(false);
 					
 				}
+			}catch(NumberFormatException x) {
+				JOptionPane.showMessageDialog(null, "Use o ponto para a notação do valor!");
+			}
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));

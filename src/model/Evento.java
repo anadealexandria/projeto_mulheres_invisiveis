@@ -7,6 +7,7 @@ public class Evento {
 	private String nome;
 	private String data;	
 	private String objetivo;
+	private Voluntaria voluntariaResponsavel;
 	private double custo;
 	public static List<Evento> eventos = new ArrayList<>();
 	
@@ -14,10 +15,11 @@ public class Evento {
 		
 	}
 
-	public Evento(String nome, String data, String objetivo, double custo) {
+	public Evento(String nome, String data, String objetivo, Voluntaria voluntariaResponsavel, double custo) {
 		this.nome = nome;
 		this.data = data;			
 		this.objetivo = objetivo;
+		this.voluntariaResponsavel = voluntariaResponsavel;
 		this.custo = custo;
 		
 	}
@@ -56,7 +58,8 @@ public class Evento {
 
 	@Override
 	public String toString() {
-		return "\n      Nome: " + nome + "\n      Data: " + data + "\n      Objetivo: " + objetivo + "\n      Custo: " + custo + "\n";
+		return "\n      Nome do Evento: " + nome + "\n      Data: " + data + "\n      Objetivo: " + objetivo + "\n      Voluntária Responsável: " 
+	+ voluntariaResponsavel.getNome() + "\n      Custo: " + custo + "\n";
 		
 	}
 	

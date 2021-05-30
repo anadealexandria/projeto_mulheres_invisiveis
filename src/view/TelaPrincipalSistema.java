@@ -10,21 +10,26 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
-import model.DadosLoginSenha;
-
-import javax.swing.JPasswordField;
+import enums.PerfisEnum;
+import model.Usuario;
+import servicos.UsuariosDados;
 
 public class TelaPrincipalSistema extends JFrame {
 
+	private static final long serialVersionUID = 1L;
+	
 	private JPanel contentPane;
 	private JTextField textLogin;
-	private static TelaPrincipalSistema telaPrincipal;
 	private JPasswordField passwordSenha;
+	
+	private UsuariosDados usuariosDados;
 
 	/**
 	 * Launch the application.
@@ -33,6 +38,7 @@ public class TelaPrincipalSistema extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
 					TelaPrincipalSistema frame = new TelaPrincipalSistema();
 					frame.setVisible(true);
 				} catch (Exception e) {
@@ -46,7 +52,8 @@ public class TelaPrincipalSistema extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaPrincipalSistema() {
-		telaPrincipal = this;
+		usuariosDados = new UsuariosDados();
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -60,11 +67,11 @@ public class TelaPrincipalSistema extends JFrame {
 		
 		JLabel lblBemvindasMulheres = new JLabel("Bem-vinda \u00E0  Mulheres Invis\u00EDveis!");
 		lblBemvindasMulheres.setHorizontalAlignment(SwingConstants.CENTER);
-		lblBemvindasMulheres.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblBemvindasMulheres.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblBemvindasMulheres.setBounds(0, 0, 424, 37);
 		contentPane.add(lblBemvindasMulheres);
 		
-		JLabel lblLogin = new JLabel("Login:");
+		JLabel lblLogin = new JLabel("Email:");
 		lblLogin.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblLogin.setHorizontalAlignment(SwingConstants.LEFT);
 		lblLogin.setBounds(10, 72, 46, 14);
@@ -75,46 +82,57 @@ public class TelaPrincipalSistema extends JFrame {
 		lblSenhta.setBounds(10, 122, 46, 14);
 		contentPane.add(lblSenhta);
 		
-		JButton btnCadastrarVoluntriaResponsvel = new JButton("Primeiro Cadastro");		
-		btnCadastrarVoluntriaResponsvel.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnCadastrarVoluntriaResponsvel.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				TelaPrimeiroCadastro cadastro = new TelaPrimeiroCadastro();
-				cadastro.setVisible(true);
-				setVisible(false);
-				
-			}
-		});
-		btnCadastrarVoluntriaResponsvel.setBounds(141, 227, 145, 23);
-		contentPane.add(btnCadastrarVoluntriaResponsvel);
-		
 		textLogin = new JTextField();
-		textLogin.setBounds(11, 91, 413, 20);
+		textLogin.setBounds(11, 91, 413, 25);
 		contentPane.add(textLogin);
 		textLogin.setColumns(10);
 		
 		passwordSenha = new JPasswordField();
-		passwordSenha.setBounds(10, 144, 414, 20);
+		passwordSenha.setBounds(10, 144, 414, 25);
 		contentPane.add(passwordSenha);
 		
 		JButton btnEntrar = new JButton("Entrar");
-		btnEntrar.setBounds(168, 193, 89, 23);
+		btnEntrar.setBounds(335, 227, 89, 23);
 		contentPane.add(btnEntrar);		
 		btnEntrar.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String login = textLogin.getText();
-				String senha = new String(passwordSenha.getPassword());	
+				String email = textLogin.getText();
+				String senha = new String(passwordSenha.getPassword());
 				
-				if(login.equals(DadosLoginSenha.acesso[0]) && senha.equals(DadosLoginSenha.acesso[1])) {
-						TelaEscolherAcao telaAcao = new TelaEscolherAcao();
-						telaAcao.setVisible(true);
-						setVisible(false);
-				}else {		
-					textLogin.setText("");
-					passwordSenha.setText("");
-					JOptionPane.showMessageDialog(null, "Usuário não cadastrado ou Inválido!");
-				
+				if (email.equals("") || senha.equals("")) {
+					JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
+					return;
+				}			
+					 
+				if (usuariosDados.validaLogin(email, senha)) {
+					
+					Usuario usuarioLogado = usuariosDados.buscaPorEmail(email);
+					usuariosDados.setUsuarioLogado(usuarioLogado);
+					
+					PerfisEnum perfil = usuarioLogado.getPerfil();
+					// Seleciona tela de acordo com o Perfil do Usuário
+					switch (perfil) {
+					case FUNCIONARIO:
+						TelaPrincipalSistema principal = new TelaPrincipalSistema();
+						principal.setVisible(true);
+						break;
+						
+					case VOLUNTARIA:
+						TelaPrincipalSistema principal2 = new TelaPrincipalSistema();
+						principal2.setVisible(true);
+						break;
+						
+					case GESTOR:
+						TelaPrincipalSistema principal3 = new TelaPrincipalSistema();
+						principal3.setVisible(true);
+						break;	
+					}
+					
+					setVisible(false);
+					
+				} else {
+					JOptionPane.showMessageDialog(null, "Usuário ou senha inválida!");
 				}
 			}	
 		});

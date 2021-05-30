@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import model.Receita;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
@@ -14,13 +17,17 @@ import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextArea;
+import javax.swing.JTextPane;
+import java.awt.Panel;
+import java.awt.TextArea;
 
 public class TelaFinanceiro extends JFrame {
 
 	private JPanel contentPane;
-	private JTable table;
-	private JTable table_1;
 	private JButton btnNewButton;
+	private Panel panel;
+	private TextArea textArea;
 
 	/**
 	 * Launch the application.
@@ -43,7 +50,7 @@ public class TelaFinanceiro extends JFrame {
 	 */
 	public TelaFinanceiro() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 426, 317);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -52,17 +59,8 @@ public class TelaFinanceiro extends JFrame {
 		JLabel lblListaDeEventos = new JLabel("Financeiro:");
 		lblListaDeEventos.setHorizontalAlignment(SwingConstants.CENTER);
 		lblListaDeEventos.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblListaDeEventos.setBounds(117, 22, 194, 14);
+		lblListaDeEventos.setBounds(106, 23, 194, 14);
 		contentPane.add(lblListaDeEventos);
-		
-		table = new JTable();
-		table.setBounds(345, 78, -250, 88);
-		contentPane.add(table);
-		
-		table_1 = new JTable();
-		table_1.setForeground(Color.RED);
-		table_1.setBounds(339, 65, -256, 138);
-		contentPane.add(table_1);
 		
 		btnNewButton = new JButton("Voltar");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -73,7 +71,18 @@ public class TelaFinanceiro extends JFrame {
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnNewButton.setBounds(173, 227, 89, 23);
+		btnNewButton.setBounds(165, 241, 89, 23);
 		contentPane.add(btnNewButton);
+		
+		Panel panel = new Panel();
+		panel.setBounds(10, 43, 388, 179);
+		contentPane.add(panel);
+		
+		TextArea textArea = new TextArea();
+		panel.add(textArea);
+		
+		
+		
+		textArea.setText(Receita.receitaTotal.receitaTotal().toString());
 	}
 }

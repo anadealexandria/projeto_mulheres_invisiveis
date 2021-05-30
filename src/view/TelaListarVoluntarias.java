@@ -62,7 +62,7 @@ public class TelaListarVoluntarias extends JFrame {
 		JButton btnNewButton = new JButton("Voltar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaVoluntarias telaVoluntarias = new TelaVoluntarias();
+				TelaFuncionario telaVoluntarias = new TelaFuncionario();
 				telaVoluntarias.setVisible(true);
 				setVisible(false);
 			}

@@ -30,8 +30,13 @@ public class Despesa {
 	}
 	
 	public double despesaTotal() {
+		double receitaTotal = receita.receitaTotal();
+		double custoEvento = evento.getCusto();
 		
+		return receitaTotal -= custoEvento;
 	}
 	
-	
+	public String toString() {
+		return "\n               Depesa Total: " + despesaTotal();
+	}
 }

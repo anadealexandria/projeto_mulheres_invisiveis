@@ -1,52 +1,18 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.List;
+import enums.PerfisEnum;
 
-public class Voluntaria {
-	private String nome;
-	private String cpf;
-	private String telefone;
+public class Voluntaria extends Usuario {
 	
-	public static List<Voluntaria> voluntarias = new ArrayList<>();
-	
-	public Voluntaria() {
-		
-	}
-		
-	public Voluntaria(String nome, String cpf, String telefone) {
-		this.nome = nome;
-		this.cpf = cpf;
-		this.telefone = telefone;
-		
+	private Disponibilidade disponibilidade;
+
+	public Voluntaria(String nome, String email,
+			String senha, String cpfCnpj, Disponibilidade disponibilidade) {
+		super(nome, email, senha, cpfCnpj, PerfisEnum.VOLUNTARIA);
+		this.disponibilidade = disponibilidade;
 	}
 
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-
-	public String getTelefone() {
-		return telefone;
-	}
-
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
-	
-	@Override
-	public String toString() {
-		return "\n    Nome: " + nome + "\n    CPF: " + cpf + "\n    Telefone: " + telefone + "\n";
-	}
+	public Disponibilidade getDisponibilidade() {
+		return disponibilidade;
+	}	
 }

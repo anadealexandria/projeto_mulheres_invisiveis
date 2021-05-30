@@ -18,7 +18,7 @@ public class Doacao {
 	public void setvalor (double valor) {
 		this.valor = valor;
 		
-	}
+	}	
 	
 	@Override
 	public String toString() {
