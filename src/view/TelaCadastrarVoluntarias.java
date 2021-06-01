@@ -20,6 +20,7 @@ import model.Voluntaria;
 import servicos.UsuariosDados;
 
 import java.awt.event.ActionListener;
+import java.time.LocalDateTime;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
 import javax.swing.JCheckBox;
@@ -34,6 +35,7 @@ public class TelaCadastrarVoluntarias extends JFrame {
 	private JCheckBox chckbxManha;
 	private JCheckBox chckbxTarde;
 	private JCheckBox chckbxNoite;
+	private Voluntaria voluntaria;
 	/**
 	 * Launch the application.
 	 */
@@ -110,6 +112,7 @@ public class TelaCadastrarVoluntarias extends JFrame {
 			String email = textEmail.getText();
 			String senha = new String(textSenha.getPassword());
 			
+			
 			Disponibilidade disponibilidade = new Disponibilidade();
 			
 			disponibilidade.setManha(chckbxManha.isSelected());
@@ -117,6 +120,8 @@ public class TelaCadastrarVoluntarias extends JFrame {
 			disponibilidade.setNoite(chckbxNoite.isSelected());
 			
 			UsuariosDados usuarioDados = new UsuariosDados();
+			
+			if (voluntaria == null) {
 			
 			if (usuarioDados.buscaPorEmail(email) != null) {
 				JOptionPane.showMessageDialog(null, "Email já em uso!");
@@ -134,6 +139,16 @@ public class TelaCadastrarVoluntarias extends JFrame {
 			chckbxManha.setSelected(false);
 			chckbxTarde.setSelected(false);
 			chckbxNoite.setSelected(false);
+			} else {
+				voluntaria.setNome(nome);
+				voluntaria.setCpfCnpj(cpfCnpj);
+				voluntaria.setEmail(email);
+				voluntaria.setSenha(senha);
+				voluntaria.setDisponibilidade(disponibilidade);
+				JOptionPane.showMessageDialog(null, "Voluntária editada com sucesso!");
+				
+				
+			}
 		}
 		});
 		
@@ -175,5 +190,17 @@ public class TelaCadastrarVoluntarias extends JFrame {
 		chckbxNoite = new JCheckBox("Noite");
 		chckbxNoite.setBounds(144, 274, 97, 23);
 		contentPane.add(chckbxNoite);
+	}
+	
+	
+	public TelaCadastrarVoluntarias(Voluntaria voluntario) {
+		this();
+		this.voluntaria = voluntario;
+		textNome.setText(voluntario.getNome());
+		textCpfCnpj.setText(voluntario.getCpfCnpj());
+		textEmail.setText(voluntario.getEmail());
+		textSenha.setText(voluntario.getSenha());
+		
+	
 	}
 }

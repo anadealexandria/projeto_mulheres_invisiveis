@@ -1,5 +1,6 @@
 package model;
 
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +20,13 @@ public class VoluntarioTableModel extends AbstractTableModel{
 		voluntarios = new ArrayList<>();
 		addVoluntarios();
 	}
+	
+	
+
+	public List<Voluntaria> getVoluntarios() {
+		return voluntarios;
+	}
+
 
 	@Override
 	public String getColumnName(int column) {
@@ -51,12 +59,23 @@ public class VoluntarioTableModel extends AbstractTableModel{
 		for (Usuario voluntario: listaAuxiliar) {
 			voluntarios.add((Voluntaria) voluntario);
 		}
+		
+		
 	}
 	
 	public void removeVoluntario(int linha) {
 		usuariosDados.removerUsuario(voluntarios.get(linha));
 		this.voluntarios.remove(linha);
 		this.fireTableRowsDeleted(linha, linha);
+	}
+	
+	public Voluntaria selecionaVoluntario(int index) {
+		return voluntarios.get(index);
+	}
+	
+	public void carregarDados(List<Voluntaria> voluntarias) {
+		this.voluntarios = voluntarias;
+		fireTableRowsUpdated(voluntarias.size() - 1, voluntarias.size() - 1);
 	}
 }
 

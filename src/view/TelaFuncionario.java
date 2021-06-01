@@ -40,7 +40,7 @@ public class TelaFuncionario extends JFrame {
 	 */
 	public TelaFuncionario() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 452, 292);
+		setBounds(100, 100, 452, 323);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -67,9 +67,9 @@ public class TelaFuncionario extends JFrame {
 		JButton btnNewButton_1 = new JButton("Eventos");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaListarVoluntarias telaListarVoluntarias = new TelaListarVoluntarias();
-				telaListarVoluntarias.setVisible(true);
-				setVisible(false);
+				//TelaListarVoluntarias telaListarVoluntarias = new TelaListarVoluntarias();
+				//telaListarVoluntarias.setVisible(true);
+				//setVisible(false);
 			}
 		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -80,12 +80,17 @@ public class TelaFuncionario extends JFrame {
 		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaEscolherAcao telaEscolherAcao = new TelaEscolherAcao();
+				TelaVoluntarias telaEscolherAcao = new TelaVoluntarias();
 				telaEscolherAcao.setVisible(true);
 				setVisible(false);
 			}
 		});
-		btnNewButton_2.setBounds(337, 208, 89, 34);
+		btnNewButton_2.setBounds(337, 241, 89, 34);
 		contentPane.add(btnNewButton_2);
+		
+		JButton btnNewButton_3 = new JButton("Doa\u00E7\u00E3o");
+		btnNewButton_3.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnNewButton_3.setBounds(138, 170, 158, 34);
+		contentPane.add(btnNewButton_3);
 	}
 }

@@ -75,7 +75,7 @@ public class TelaEventos extends JFrame {
 		JButton btnNewButton_2 = new JButton("Voltar");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaEscolherAcao telaEscolherAcao = new TelaEscolherAcao();
+				TelaVoluntarias telaEscolherAcao = new TelaVoluntarias();
 				telaEscolherAcao.setVisible(true);
 				setVisible(false);
 			}

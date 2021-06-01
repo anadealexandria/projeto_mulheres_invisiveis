@@ -9,11 +9,12 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class TelaEscolherAcao extends JFrame {
+public class TelaVoluntarias extends JFrame {
 
 	private JPanel contentPane;
 
@@ -24,7 +25,8 @@ public class TelaEscolherAcao extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaEscolherAcao frame = new TelaEscolherAcao();
+					UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+					TelaVoluntarias frame = new TelaVoluntarias();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -36,7 +38,7 @@ public class TelaEscolherAcao extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public TelaEscolherAcao() {
+	public TelaVoluntarias() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 444, 249);
 		contentPane = new JPanel();
@@ -44,23 +46,23 @@ public class TelaEscolherAcao extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblEscolherUmaAo = new JLabel("Escolher uma a\u00E7\u00E3o:");
+		JLabel lblEscolherUmaAo = new JLabel("Volunt\u00E1rio Logado:");
 		lblEscolherUmaAo.setHorizontalAlignment(SwingConstants.CENTER);
-		lblEscolherUmaAo.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblEscolherUmaAo.setBounds(136, 30, 169, 14);
+		lblEscolherUmaAo.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblEscolherUmaAo.setBounds(10, 30, 408, 29);
 		contentPane.add(lblEscolherUmaAo);
 		
-		JButton btnDoao = new JButton("Doa\u00E7\u00E3o");
-		btnDoao.addActionListener(new ActionListener() {
+		JButton btnDoacao = new JButton("Funcion\u00E1rios");
+		btnDoacao.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaDoacao telaDoacao = new TelaDoacao();
 				telaDoacao.setVisible(true);
 				setVisible(false);
 			}
 		});
-		btnDoao.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnDoao.setBounds(157, 70, 134, 23);
-		contentPane.add(btnDoao);
+		btnDoacao.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnDoacao.setBounds(157, 70, 134, 23);
+		contentPane.add(btnDoacao);
 		
 		JButton btnVoluntrios = new JButton("Volunt\u00E1rios");
 		btnVoluntrios.addActionListener(new ActionListener() {

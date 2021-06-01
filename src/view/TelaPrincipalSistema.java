@@ -114,7 +114,7 @@ public class TelaPrincipalSistema extends JFrame {
 					// Seleciona tela de acordo com o Perfil do Usuário
 					switch (perfil) {
 					case FUNCIONARIO:
-						TelaPrincipalSistema principal = new TelaPrincipalSistema();
+						TelaFuncionario principal = new TelaFuncionario();
 						principal.setVisible(true);
 						break;
 						

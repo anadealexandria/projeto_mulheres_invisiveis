@@ -39,6 +39,26 @@ public class Usuario {
 
 	public PerfisEnum getPerfil() {
 		return perfil;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	public void setCpfCnpj(String cpfCnpj) {
+		this.cpfCnpj = cpfCnpj;
+	}
+
+	public void setPerfil(PerfisEnum perfil) {
+		this.perfil = perfil;
 	}	
 	
 	

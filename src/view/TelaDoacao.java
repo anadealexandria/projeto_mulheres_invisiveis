@@ -6,15 +6,24 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import model.DoacaoTableModel;
+import model.VoluntarioTableModel;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
+import javax.swing.UIManager;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 public class TelaDoacao extends JFrame {
 
 	private JPanel contentPane;
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -23,6 +32,7 @@ public class TelaDoacao extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
 					TelaDoacao frame = new TelaDoacao();
 					frame.setVisible(true);
 				} catch (Exception e) {
@@ -37,51 +47,62 @@ public class TelaDoacao extends JFrame {
 	 */
 	public TelaDoacao() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 351);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblDoao = new JLabel("Doa\u00E7\u00E3o:");
-		lblDoao.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblDoao.setBounds(190, 26, 46, 14);
+		lblDoao.setBounds(10, 11, 414, 29);
+		lblDoao.setHorizontalAlignment(SwingConstants.CENTER);
+		lblDoao.setFont(new Font("Tahoma", Font.BOLD, 14));
 		contentPane.add(lblDoao);
 		
-		JButton btnCadastrarDoao = new JButton("Cadastrar Doa\u00E7\u00E3o");
-		btnCadastrarDoao.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				TelaCadastrarDoacao telaCadastrar = new TelaCadastrarDoacao();
-				telaCadastrar.setVisible(true);
-				setVisible(false);
-			}
-		});
-		btnCadastrarDoao.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnCadastrarDoao.setBounds(150, 75, 137, 23);
-		contentPane.add(btnCadastrarDoao);
-		
-		JButton btnListarDoao = new JButton("Listar Doa\u00E7\u00E3o");
-		btnListarDoao.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				TelaListarDoacoes telaListar = new TelaListarDoacoes();
-				telaListar.setVisible(true);
-				setVisible(false);
-			}
-		});
-		btnListarDoao.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnListarDoao.setBounds(150, 123, 137, 23);
-		contentPane.add(btnListarDoao);
-		
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setBounds(335, 272, 89, 29);
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaEscolherAcao telaEscolher = new TelaEscolherAcao();
-				telaEscolher.setVisible(true);
+				TelaFuncionario telaFuncionario = new TelaFuncionario();
+				telaFuncionario.setVisible(true);
 				setVisible(false);
 			}
 		});
-		btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnVoltar.setBounds(176, 182, 89, 23);
+		btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 12));
 		contentPane.add(btnVoltar);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 100, 414, 161);
+		contentPane.add(scrollPane);
+		
+		table = new JTable();
+		scrollPane.setViewportView(table);
+		DoacaoTableModel tabela = new DoacaoTableModel();
+		table.setModel(tabela);
+		
+		JButton btnAceitarDoao = new JButton("Remover ");
+		btnAceitarDoao.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (table.getSelectedRow() != -1) {
+					tabela.removeDoacao(table.getSelectedRow());
+				}
+			}
+			
+		});
+		btnAceitarDoao.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnAceitarDoao.setBounds(10, 66, 119, 23);
+		contentPane.add(btnAceitarDoao);
+		
+		JButton btnNewButton = new JButton("Cadastrar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaCadastrarDoacao telaCadastrarDoacao = new TelaCadastrarDoacao();
+				telaCadastrarDoacao.setVisible(true);
+				setVisible(false);
+			}
+		});
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnNewButton.setBounds(139, 66, 110, 23);
+		contentPane.add(btnNewButton);
 	}
 }
