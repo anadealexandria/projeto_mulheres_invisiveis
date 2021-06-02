@@ -5,16 +5,16 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
+import javax.swing.SwingConstants;
+import javax.swing.UIManager;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.SwingConstants;
 
-public class TelaFuncionario extends JFrame {
+public class TelaGestora extends JFrame {
 
 	private JPanel contentPane;
 
@@ -26,7 +26,7 @@ public class TelaFuncionario extends JFrame {
 			public void run() {
 				try {
 					UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
-					TelaFuncionario frame = new TelaFuncionario();
+					TelaGestora frame = new TelaGestora();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -38,66 +38,67 @@ public class TelaFuncionario extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public TelaFuncionario() {
+	public TelaGestora() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 452, 323);
+		setBounds(100, 100, 450, 249);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Funcion\u00E1rio Logado:");
+		JLabel lblNewLabel = new JLabel("Gestora Logada:");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel.setBounds(10, 26, 416, 23);
+		lblNewLabel.setBounds(10, 11, 414, 25);
 		contentPane.add(lblNewLabel);
 		
-		JButton btnNewButton = new JButton("Volunt\u00E1rios");
+		JButton btnNewButton = new JButton("Funcion\u00E1rios");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaVoluntario telaVoluntario = new TelaVoluntario();
-				telaVoluntario.setVisible(true);
+				TelaCadastrarFuncionaria telaCadastrarFuncionaria = new TelaCadastrarFuncionaria();
+				telaCadastrarFuncionaria.setVisible(true);
 				setVisible(false);
 			}
 		});
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnNewButton.setBounds(138, 81, 158, 34);
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btnNewButton.setBounds(136, 60, 151, 25);
 		contentPane.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("Eventos");
+		JButton btnNewButton_1 = new JButton("Receitas");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//TelaListarVoluntarias telaListarVoluntarias = new TelaListarVoluntarias();
-				//telaListarVoluntarias.setVisible(true);
-				//setVisible(false);
+				TelaReceita telaReceita = new TelaReceita();
+				telaReceita.setVisible(true);
+				setVisible(false);
 			}
 		});
-		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnNewButton_1.setBounds(138, 126, 158, 33);
+		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btnNewButton_1.setBounds(136, 96, 151, 25);
 		contentPane.add(btnNewButton_1);
 		
-		JButton btnNewButton_2 = new JButton("Sair");
-		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD, 11));
+		JButton btnNewButton_2 = new JButton("Despesas");
 		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaDespesas telaDespesas = new TelaDespesas();
+				telaDespesas.setVisible(true);
+				setVisible(false);
+			}
+		});
+		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btnNewButton_2.setBounds(136, 132, 151, 25);
+		contentPane.add(btnNewButton_2);
+		
+		JButton btnNewButton_3 = new JButton("Sair");
+		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaPrincipalSistema telaPrincipalSistema = new TelaPrincipalSistema();
 				telaPrincipalSistema.setVisible(true);
 				setVisible(false);
 			}
 		});
-		btnNewButton_2.setBounds(337, 241, 89, 34);
-		contentPane.add(btnNewButton_2);
-		
-		JButton btnNewButton_3 = new JButton("Doa\u00E7\u00E3o");
-		btnNewButton_3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				TelaDoacao telaDoacao = new TelaDoacao();
-				telaDoacao.setVisible(true);
-				setVisible(false);
-			}
-		});
-		btnNewButton_3.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnNewButton_3.setBounds(138, 170, 158, 34);
+		btnNewButton_3.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btnNewButton_3.setBounds(335, 174, 89, 25);
 		contentPane.add(btnNewButton_3);
 	}
+
 }

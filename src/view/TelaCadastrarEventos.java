@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
 import model.Evento;
@@ -19,6 +20,7 @@ import model.Voluntaria;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JCheckBox;
 
 public class TelaCadastrarEventos extends JFrame {
 
@@ -36,6 +38,7 @@ public class TelaCadastrarEventos extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
 					TelaCadastrarEventos frame = new TelaCadastrarEventos();
 					frame.setVisible(true);
 				} catch (Exception e) {
@@ -53,7 +56,7 @@ public class TelaCadastrarEventos extends JFrame {
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 468, 420);
+		setBounds(100, 100, 468, 449);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -61,7 +64,7 @@ public class TelaCadastrarEventos extends JFrame {
 		
 		JLabel lblCadastrarEvento = new JLabel("Cadastrar Evento:");
 		lblCadastrarEvento.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCadastrarEvento.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblCadastrarEvento.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblCadastrarEvento.setBounds(127, 24, 180, 14);
 		contentPane.add(lblCadastrarEvento);
 		
@@ -71,8 +74,8 @@ public class TelaCadastrarEventos extends JFrame {
 		contentPane.add(Nome);
 		
 		textNome = new JTextField();
-		textNome.setFont(new Font("Tahoma", Font.BOLD, 11));
-		textNome.setBounds(10, 76, 414, 20);
+		textNome.setFont(new Font("Tahoma", Font.BOLD, 14));
+		textNome.setBounds(10, 76, 432, 25);
 		contentPane.add(textNome);
 		textNome.setColumns(10);
 		textNome.setText("");
@@ -85,7 +88,7 @@ public class TelaCadastrarEventos extends JFrame {
 		
 		textData = new JTextField();
 		textData.setFont(new Font("Tahoma", Font.BOLD, 11));
-		textData.setBounds(10, 121, 414, 20);
+		textData.setBounds(10, 121, 432, 25);
 		contentPane.add(textData);
 		textData.setColumns(10);
 		textData.setText("");
@@ -97,7 +100,7 @@ public class TelaCadastrarEventos extends JFrame {
 		
 		textObjetivo = new JTextField();
 		textObjetivo.setFont(new Font("Tahoma", Font.BOLD, 11));
-		textObjetivo.setBounds(10, 171, 414, 20);
+		textObjetivo.setBounds(10, 171, 432, 25);
 		contentPane.add(textObjetivo);
 		textObjetivo.setColumns(10);
 		textObjetivo.setText("");
@@ -109,14 +112,14 @@ public class TelaCadastrarEventos extends JFrame {
 		
 		textCusto = new JTextField();
 		textCusto.setFont(new Font("Tahoma", Font.BOLD, 11));
-		textCusto.setBounds(10, 260, 416, 20);
+		textCusto.setBounds(10, 260, 432, 25);
 		contentPane.add(textCusto);
 		textCusto.setColumns(10);
 		textCusto.setText("0.0");
 	
 		JButton botaoEnviar = new JButton("Enviar");
-		botaoEnviar.setFont(new Font("Tahoma", Font.BOLD, 11));
-		botaoEnviar.setBounds(190, 305, 89, 23);
+		botaoEnviar.setFont(new Font("Tahoma", Font.BOLD, 13));
+		botaoEnviar.setBounds(190, 338, 89, 25);
 		contentPane.add(botaoEnviar);
 		
 		JButton btnNewButton = new JButton("Voltar");
@@ -127,8 +130,8 @@ public class TelaCadastrarEventos extends JFrame {
 				setVisible(false);
 			}
 		});
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnNewButton.setBounds(190, 339, 89, 23);
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btnNewButton.setBounds(190, 374, 89, 25);
 		contentPane.add(btnNewButton);
 		
 		JLabel lblResponsvel = new JLabel("Respons\u00E1vel:");
@@ -138,10 +141,25 @@ public class TelaCadastrarEventos extends JFrame {
 		
 		textResponsavel = new JTextField();
 		textResponsavel.setFont(new Font("Tahoma", Font.BOLD, 11));
-		textResponsavel.setBounds(10, 215, 414, 20);
+		textResponsavel.setBounds(10, 215, 432, 25);
 		contentPane.add(textResponsavel);
 		textResponsavel.setColumns(10);
 		textResponsavel.setText("");
+		
+		JCheckBox chckbxNewCheckBox = new JCheckBox("Manh\u00E3");
+		chckbxNewCheckBox.setFont(new Font("Tahoma", Font.BOLD, 11));
+		chckbxNewCheckBox.setBounds(10, 292, 97, 23);
+		contentPane.add(chckbxNewCheckBox);
+		
+		JCheckBox chckbxNewCheckBox_1 = new JCheckBox("Tarde");
+		chckbxNewCheckBox_1.setFont(new Font("Tahoma", Font.BOLD, 11));
+		chckbxNewCheckBox_1.setBounds(109, 292, 97, 23);
+		contentPane.add(chckbxNewCheckBox_1);
+		
+		JCheckBox chckbxNewCheckBox_2 = new JCheckBox("Noite");
+		chckbxNewCheckBox_2.setFont(new Font("Tahoma", Font.BOLD, 11));
+		chckbxNewCheckBox_2.setBounds(210, 292, 97, 23);
+		contentPane.add(chckbxNewCheckBox_2);
 		
 		botaoEnviar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {	

@@ -52,31 +52,31 @@ public class TelaVoluntarias extends JFrame {
 		lblEscolherUmaAo.setBounds(10, 30, 408, 29);
 		contentPane.add(lblEscolherUmaAo);
 		
-		JButton btnDoacao = new JButton("Funcion\u00E1rios");
+		JButton btnDoacao = new JButton("Buscar evento");
 		btnDoacao.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaDoacao telaDoacao = new TelaDoacao();
-				telaDoacao.setVisible(true);
+				TelaBuscarEvento telaBuscarEvento = new TelaBuscarEvento();
+				telaBuscarEvento.setVisible(true);
 				setVisible(false);
 			}
 		});
-		btnDoacao.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnDoacao.setBounds(157, 70, 134, 23);
+		btnDoacao.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btnDoacao.setBounds(157, 84, 134, 25);
 		contentPane.add(btnDoacao);
 		
-		JButton btnVoluntrios = new JButton("Volunt\u00E1rios");
+		JButton btnVoluntrios = new JButton("Doar");
 		btnVoluntrios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaFuncionario telaVoluntarias = new TelaFuncionario();
-				telaVoluntarias.setVisible(true);
+				TelaCadastrarDoacao telaCadastrarDoacao = new TelaCadastrarDoacao();
+				telaCadastrarDoacao.setVisible(true);
 				setVisible(false);
 			}
 		});
-		btnVoluntrios.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnVoluntrios.setBounds(157, 104, 134, 23);
+		btnVoluntrios.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btnVoluntrios.setBounds(157, 120, 134, 25);
 		contentPane.add(btnVoluntrios);
 		
-		JButton btnEventos = new JButton("Eventos");
+		JButton btnEventos = new JButton("Sair");
 		btnEventos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaEventos telaEventos = new TelaEventos();
@@ -84,21 +84,9 @@ public class TelaVoluntarias extends JFrame {
 				setVisible(false);
 			}
 		});
-		btnEventos.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnEventos.setBounds(157, 138, 134, 23);
+		btnEventos.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btnEventos.setBounds(334, 174, 84, 25);
 		contentPane.add(btnEventos);
-		
-		JButton btnFinanceiro = new JButton("Financeiro");
-		btnFinanceiro.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				TelaFinanceiro telaFinanceiro = new TelaFinanceiro();
-				telaFinanceiro.setVisible(true);
-				setVisible(false);
-			}
-		});
-		btnFinanceiro.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnFinanceiro.setBounds(157, 172, 134, 23);
-		contentPane.add(btnFinanceiro);
 	}
 
 }

@@ -119,12 +119,12 @@ public class TelaPrincipalSistema extends JFrame {
 						break;
 						
 					case VOLUNTARIA:
-						TelaPrincipalSistema principal2 = new TelaPrincipalSistema();
+						TelaVoluntarias principal2 = new TelaVoluntarias();
 						principal2.setVisible(true);
 						break;
 						
 					case GESTOR:
-						TelaPrincipalSistema principal3 = new TelaPrincipalSistema();
+						TelaGestora principal3 = new TelaGestora();
 						principal3.setVisible(true);
 						break;	
 					}
