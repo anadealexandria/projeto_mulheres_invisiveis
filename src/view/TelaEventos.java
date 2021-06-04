@@ -10,10 +10,14 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import model.EventoTableModel;
+
 import javax.swing.JTable;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
 
 public class TelaEventos extends JFrame {
 
@@ -27,6 +31,7 @@ public class TelaEventos extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
 					TelaEventos frame = new TelaEventos();
 					frame.setVisible(true);
 				} catch (Exception e) {
@@ -66,12 +71,22 @@ public class TelaEventos extends JFrame {
 		btnNewButton.setBounds(124, 63, 99, 23);
 		contentPane.add(btnNewButton);
 		
+		JScrollPane scrollPane =  new JScrollPane();
+		scrollPane.setBounds(15, 97, 409, 171);
+		contentPane.add(scrollPane);
+		
+		table = new JTable();
+		scrollPane.setViewportView(table);
+		EventoTableModel tabelaEventos = new EventoTableModel();
+		tabelaEventos.carregarEventos();
+		table.setModel(tabelaEventos);
+		
 		JButton btnNewButton_1 = new JButton("Remover");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaListarEventos listaEventos = new TelaListarEventos();
-				listaEventos.setVisible(true);
-				setVisible(false);
+				if(table.getSelectedRow() != -1) {
+					tabelaEventos.removeEvento(table.getSelectedRow());
+				}
 			}
 		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 13));
@@ -81,8 +96,8 @@ public class TelaEventos extends JFrame {
 		JButton btnNewButton_2 = new JButton("Voltar");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaVoluntarias telaEscolherAcao = new TelaVoluntarias();
-				telaEscolherAcao.setVisible(true);
+				TelaFuncionario telaFuncionario = new TelaFuncionario();
+				telaFuncionario.setVisible(true);
 				setVisible(false);
 			}
 		});
@@ -90,11 +105,5 @@ public class TelaEventos extends JFrame {
 		btnNewButton_2.setBounds(333, 279, 91, 25);
 		contentPane.add(btnNewButton_2);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(15, 97, 409, 171);
-		contentPane.add(scrollPane);
-		
-		table = new JTable();
-		scrollPane.setViewportView(table);
 	}
 }

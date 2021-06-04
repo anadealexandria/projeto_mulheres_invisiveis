@@ -67,9 +67,9 @@ public class TelaFuncionario extends JFrame {
 		JButton btnNewButton_1 = new JButton("Eventos");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//TelaListarVoluntarias telaListarVoluntarias = new TelaListarVoluntarias();
-				//telaListarVoluntarias.setVisible(true);
-				//setVisible(false);
+				TelaEventos telaEventos = new TelaEventos();
+				telaEventos.setVisible(true);
+				setVisible(false);
 			}
 		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 11));

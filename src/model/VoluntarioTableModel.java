@@ -1,4 +1,4 @@
-package model;
+ package model;
 
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -74,8 +74,9 @@ public class VoluntarioTableModel extends AbstractTableModel{
 	}
 	
 	public void carregarDados(List<Voluntaria> voluntarias) {
-		this.voluntarios = voluntarias;
-		fireTableRowsUpdated(voluntarias.size() - 1, voluntarias.size() - 1);
-	}
+		voluntarios.clear();
+		addVoluntarios();
+		fireTableDataChanged();	
+		}
 }
 

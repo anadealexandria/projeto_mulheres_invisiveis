@@ -13,7 +13,7 @@ import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
-import model.DadosLoginSenha;
+
 import model.Disponibilidade;
 import model.Usuario;
 import model.Voluntaria;

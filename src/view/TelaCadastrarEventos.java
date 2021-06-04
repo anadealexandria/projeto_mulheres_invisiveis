@@ -15,8 +15,10 @@ import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
+import model.Disponibilidade;
 import model.Evento;
 import model.Voluntaria;
+import servicos.DadosEventos;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -146,20 +148,20 @@ public class TelaCadastrarEventos extends JFrame {
 		textResponsavel.setColumns(10);
 		textResponsavel.setText("");
 		
-		JCheckBox chckbxNewCheckBox = new JCheckBox("Manh\u00E3");
-		chckbxNewCheckBox.setFont(new Font("Tahoma", Font.BOLD, 11));
-		chckbxNewCheckBox.setBounds(10, 292, 97, 23);
-		contentPane.add(chckbxNewCheckBox);
+		JCheckBox chckbxManha = new JCheckBox("Manh\u00E3");
+		chckbxManha.setFont(new Font("Tahoma", Font.BOLD, 11));
+		chckbxManha.setBounds(10, 292, 97, 23);
+		contentPane.add(chckbxManha);
 		
-		JCheckBox chckbxNewCheckBox_1 = new JCheckBox("Tarde");
-		chckbxNewCheckBox_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-		chckbxNewCheckBox_1.setBounds(109, 292, 97, 23);
-		contentPane.add(chckbxNewCheckBox_1);
+		JCheckBox chckbxTarde = new JCheckBox("Tarde");
+		chckbxTarde.setFont(new Font("Tahoma", Font.BOLD, 11));
+		chckbxTarde.setBounds(109, 292, 97, 23);
+		contentPane.add(chckbxTarde);
 		
-		JCheckBox chckbxNewCheckBox_2 = new JCheckBox("Noite");
-		chckbxNewCheckBox_2.setFont(new Font("Tahoma", Font.BOLD, 11));
-		chckbxNewCheckBox_2.setBounds(210, 292, 97, 23);
-		contentPane.add(chckbxNewCheckBox_2);
+		JCheckBox chckbxNoite = new JCheckBox("Noite");
+		chckbxNoite.setFont(new Font("Tahoma", Font.BOLD, 11));
+		chckbxNoite.setBounds(210, 292, 97, 23);
+		contentPane.add(chckbxNoite);
 		
 		botaoEnviar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {	
@@ -167,17 +169,33 @@ public class TelaCadastrarEventos extends JFrame {
 				String nome = textNome.getText();
 				String data = textData.getText();
 				String objetivo = textObjetivo.getText();
-				String responsavel = textResponsavel.getText();
+				String nomeResponsavel = textResponsavel.getText();
 				double custo = Double.parseDouble(textCusto.getText());
+				boolean turno = false;
+				
+				Disponibilidade turnos = new Disponibilidade();
+				
+				
+				if (chckbxManha.isSelected()) {
+					turno = turnos.isManha();
+				}
+				if (chckbxTarde.isSelected()) {
+					turno = turnos.isTarde();
+				}
+				if (chckbxNoite.isSelected()) {
+					turno = turnos.isNoite();
+				}
 			
-				if(nome.equals("") || data.equals("") || objetivo.equals("") || responsavel.equals("") || custo == 0.0) {
+				if(nome.equals("") || data.equals("") || objetivo.equals("") || nomeResponsavel.equals("")
+						|| custo == 0.0) {
 					JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
 				}else {
-				Voluntaria volResponsavel = new Voluntaria(responsavel);
+				
+					DadosEventos dadosEventos = new DadosEventos();
 				
 				
-				Evento evento = new Evento(nome, data, objetivo, volResponsavel, custo);
-				Evento.eventos.add(evento);	
+				Evento evento = new Evento(nome, data, objetivo, nomeResponsavel, custo, turnos);
+				dadosEventos.getEventos().add(evento);
 				TelaEventos telaEventos = new TelaEventos();
 				telaEventos.setVisible(true);
 				setVisible(false);

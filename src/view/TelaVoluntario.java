@@ -8,9 +8,12 @@ import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
+import enums.PerfisEnum;
 import model.Voluntaria;
 import model.VoluntariasUtil;
+
 import model.VoluntarioTableModel;
+import servicos.UsuariosDados;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -54,7 +57,7 @@ public class TelaVoluntario extends JFrame {
 	 */
 	public TelaVoluntario() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 486, 469);
+		setBounds(100, 100, 486, 372);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -76,7 +79,7 @@ public class TelaVoluntario extends JFrame {
 			}
 		});
 		btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnVoltar.setBounds(272, 395, 89, 23);
+		btnVoltar.setBounds(272, 303, 89, 23);
 		contentPane.add(btnVoltar);
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
@@ -88,7 +91,7 @@ public class TelaVoluntario extends JFrame {
 			}
 		});
 		btnCadastrar.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnCadastrar.setBounds(371, 396, 89, 23);
+		btnCadastrar.setBounds(371, 304, 89, 23);
 		contentPane.add(btnCadastrar);
 		
 		JButton btnEditar = new JButton("Editar");
@@ -108,7 +111,7 @@ public class TelaVoluntario extends JFrame {
 		contentPane.add(btnEditar);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 159, 452, 212);
+		scrollPane.setBounds(10, 159, 452, 112);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
@@ -139,7 +142,7 @@ public class TelaVoluntario extends JFrame {
 		contentPane.add(textArquivo);
 		textArquivo.setColumns(10);
 		
-		JButton btnProcurar = new JButton("Procurar");
+		JButton btnProcurar = new JButton("Importar");
 		btnProcurar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -148,10 +151,15 @@ public class TelaVoluntario extends JFrame {
 				telaArquivo.setFileSelectionMode(JFileChooser.FILES_ONLY);
 				telaArquivo.showOpenDialog(telaArquivo);
 				File arquivo = telaArquivo.getSelectedFile();
-				//VoluntarioTableModel listagem = new VoluntarioTableModel();
 				
 				textArquivo.setText(arquivo.getPath());
 				List<Voluntaria> listaDoArquivo = VoluntariasUtil.lerArquivo(arquivo.getPath());
+				UsuariosDados usuarioDados = new UsuariosDados();
+				
+				for(Voluntaria voluntariaArquivo: listaDoArquivo) {
+					voluntariaArquivo.setPerfil(PerfisEnum.VOLUNTARIA);
+					usuarioDados.cadastraUsuario(voluntariaArquivo);
+				}
 				tabela.carregarDados(listaDoArquivo);
 				
 				} catch (Exception erro){

@@ -67,8 +67,8 @@ public class TelaVoluntarias extends JFrame {
 		JButton btnVoluntrios = new JButton("Doar");
 		btnVoluntrios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaCadastrarDoacao telaCadastrarDoacao = new TelaCadastrarDoacao();
-				telaCadastrarDoacao.setVisible(true);
+				DoarVoluntario telaDoacao = new DoarVoluntario();
+				telaDoacao.setVisible(true);
 				setVisible(false);
 			}
 		});
@@ -79,8 +79,8 @@ public class TelaVoluntarias extends JFrame {
 		JButton btnEventos = new JButton("Sair");
 		btnEventos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaEventos telaEventos = new TelaEventos();
-				telaEventos.setVisible(true);
+				TelaPrincipalSistema telaSistema = new TelaPrincipalSistema();
+				telaSistema.setVisible(true);
 				setVisible(false);
 			}
 		});

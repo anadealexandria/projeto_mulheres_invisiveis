@@ -7,9 +7,17 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
+
+import model.Disponibilidade;
+import model.Funcionaria;
+import model.Voluntaria;
+import servicos.UsuariosDados;
+
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
@@ -19,11 +27,11 @@ import java.awt.event.ActionEvent;
 public class TelaCadastrarFuncionaria extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
+	private JTextField textNome;
+	private JTextField textEmail;
+	private JTextField textSenha;
+	private JTextField textCpf;
+	private JTextField textMatricula;
 
 	/**
 	 * Launch the application.
@@ -76,40 +84,73 @@ public class TelaCadastrarFuncionaria extends JFrame {
 		
 		JLabel lblNewLabel_4 = new JLabel("CPF:");
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_4.setBounds(10, 223, 23, 25);
+		lblNewLabel_4.setBounds(10, 223, 66, 25);
 		contentPane.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("Matr\u00EDcula:");
 		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_5.setBounds(10, 281, 56, 25);
+		lblNewLabel_5.setBounds(10, 281, 112, 25);
 		contentPane.add(lblNewLabel_5);
 		
-		textField = new JTextField();
-		textField.setBounds(10, 78, 414, 25);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		textNome = new JTextField();
+		textNome.setBounds(10, 78, 414, 25);
+		contentPane.add(textNome);
+		textNome.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(10, 133, 414, 25);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		textEmail = new JTextField();
+		textEmail.setBounds(10, 133, 414, 25);
+		contentPane.add(textEmail);
+		textEmail.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(10, 187, 414, 25);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
+		textSenha = new JTextField();
+		textSenha.setBounds(10, 187, 414, 25);
+		contentPane.add(textSenha);
+		textSenha.setColumns(10);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(10, 245, 414, 25);
-		contentPane.add(textField_3);
-		textField_3.setColumns(10);
+		textCpf = new JTextField();
+		textCpf.setBounds(10, 245, 414, 25);
+		contentPane.add(textCpf);
+		textCpf.setColumns(10);
 		
-		textField_4 = new JTextField();
-		textField_4.setBounds(10, 299, 414, 25);
-		contentPane.add(textField_4);
-		textField_4.setColumns(10);
+		textMatricula = new JTextField();
+		textMatricula.setBounds(10, 299, 414, 25);
+		contentPane.add(textMatricula);
+		textMatricula.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Enviar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String nome = textNome.getText();
+				String cpf = textCpf.getText();
+				String email = textEmail.getText();
+				String senha = textSenha.getText();
+				String matricula = textMatricula.getText();
+				
+				
+				Funcionaria funcionaria= null;
+				UsuariosDados usuarioDados = new UsuariosDados();
+				
+				if (funcionaria == null) {
+				
+				if (usuarioDados.buscaPorEmail(email) != null) {
+					JOptionPane.showMessageDialog(null, "Email já em uso!");
+					return;
+				}
+				
+				funcionaria = new Funcionaria(nome,email, senha, cpf, matricula);
+				usuarioDados.cadastraUsuario(funcionaria);
+				JOptionPane.showMessageDialog(null, "Funcionária cadastrada com sucesso!");
+				
+				TelaFuncionario telaFuncionario = new TelaFuncionario();
+				telaFuncionario.setVisible(true);
+				setVisible(false);
+				
+				
+				}
+				
+				
+			}
+		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnNewButton.setBounds(335, 347, 89, 25);
 		contentPane.add(btnNewButton);

@@ -36,6 +36,7 @@ public class VoluntariasUtil {
 			elementoAdd.setDisponibilidade(disponibilidade);
 			listaArquivo.add(elementoAdd);
 		}
+		leitura.close();
 		return listaArquivo;
 	}
 }

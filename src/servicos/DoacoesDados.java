@@ -12,7 +12,8 @@ public class DoacoesDados {
 	
 	public DoacoesDados() {
 		if (doacoes.isEmpty()) {
-		Doacao doacao = new Doacao(12.90, "Doação feita pelo prefeito", false, "Prefeito", false, DoacaoEnum.DINHEIRO);
+		Doacao doacao = new Doacao(12.90, "Doação feita pelo prefeito", 
+				false, "Prefeito", false, DoacaoEnum.DINHEIRO);
 		adicionaDoacao(doacao);
 		}
 	}
