@@ -20,7 +20,7 @@ public class UsuariosDados {
 			cadastraUsuario(gestor);
 			
 			Disponibilidade disponibilidade = new Disponibilidade(true, false, false);
-			Voluntaria voluntario = new Voluntaria("Andre", "andre@email.com","123", "001.000.000-00", disponibilidade);
+			Voluntaria voluntario = new Voluntaria("Maria", "maria@email.com","123", "001.000.000-00", disponibilidade);
 			cadastraUsuario(voluntario);
 			
 			Usuario funcionario = new Usuario("Bia", "bia@email.com", "123", "012.345.678-99", PerfisEnum.FUNCIONARIO);
