@@ -141,9 +141,6 @@ public class TelaCadastrarFuncionaria extends JFrame {
 				usuarioDados.cadastraUsuario(funcionaria);
 				JOptionPane.showMessageDialog(null, "Funcionária cadastrada com sucesso!");
 				
-				TelaFuncionario telaFuncionario = new TelaFuncionario();
-				telaFuncionario.setVisible(true);
-				setVisible(false);
 				
 				
 				}
